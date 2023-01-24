@@ -4,3 +4,5 @@
 20.01.2023 - Dodanie obiektowi Player możliwości poruszania się po scenie za pomocą kodu. Gracz może teraz poruszać się dowolnie po scenie i obracać wedle uznania. Big win.
 
 21.01.2023 - Zaimplementowanie możliwości strzelania poprzez dodanie prefabu Bullet. Pociski usuwają się po zetknięciu z boundary levelu. 
+
+24.01.2023 - Dodatnie prefabu Asteroid wraz z zależnościami ich spawnowania oraz 4 różnych modeli asteroid. 
