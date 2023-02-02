@@ -48,4 +48,17 @@ public class Player : MonoBehaviour
         Bullet bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
         bullet.Project(this.transform.up);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            _rigidbody.velocity = Vector3.zero; //przy kolizji z Asteroidą, obiekt Player przestaje się poruszać
+            _rigidbody.angularVelocity = 0.0f;
+
+            this.gameObject.SetActive(false); //obiekt Player zostaje wyłączony po kolizji z Asteroidą
+
+            FindObjectOfType<GameManager>().PlayerDied(); //
+        }
+    }
 }
