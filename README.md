@@ -8,3 +8,5 @@
 24.01.2023 - Dodatnie prefabu Asteroid wraz z zależnościami ich spawnowania oraz 4 różnych modeli asteroid. 
 
 01.02 - Dodałem spawnowanie się asteroid. Umożliwiłem im ruch i interakcję z obiektem grazza. Dodałem również możliwość niszczenia asteroid i rozłamywania ich na pół.
+
+02.02 - Dodałem liczbę żyć do wykożystania i opcję Game Over. Gracz może się respawnować tyle razy ile ma dostępnych żyć. Lepsze od Wiedźmina. 
