@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Player player;
-    public float respawnTime = 3.0f;
+    public float respawnTime = 3.0f; 
     public float respawnInvulnerabilityTime = 3.0f;
     public int lives = 3;
 
@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
     {
         this.lives--;
 
-        if (this.lives <= 0) {
+        if (this.lives <= 0) { //jeśli liczba lives jest równa 0, następuje Game Over.
             GameOver();
         } else {
-            Invoke (nameof(Respawn), this.respawnTime);    
+            Invoke (nameof(Respawn), this.respawnTime);  // jeśli nie jest równa 0, następuje respawn.
         } 
     }
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        // TODO
+       
     }
 
 }
