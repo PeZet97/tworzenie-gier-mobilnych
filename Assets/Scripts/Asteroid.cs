@@ -19,15 +19,15 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        _spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)]; //Losowo wybiera rodzaj spirta Asteroidy do zespawnowania.
 
-        this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
-        this.transform.localScale = Vector3.one * this.size;
+        this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f); //Asteoida kręci się wokół osi Z.
+        this.transform.localScale = Vector3.one * this.size; //
 
-        _rigidbody.mass = this.size;
+        _rigidbody.mass = this.size; //im większa Asteroida, tym większa jej masa.
     }
 
-    public void SetTrajectory(Vector2 direction)
+    public void SetTrajectory(Vector2 direction) //powduje że Asteroida leci do środka sceny
     {
         _rigidbody.AddForce(direction * this.speed);
 
@@ -43,7 +43,8 @@ public class Asteroid : MonoBehaviour
                 CreateSplit();
                 CreateSplit();
             }
-
+            
+            FindObjectOfType<GameManager>().AsteroidDestroyed(this);
             Destroy(this.gameObject); //Model Asteroidy przed rozłamem zostaje usunięty.
        }
     } 
