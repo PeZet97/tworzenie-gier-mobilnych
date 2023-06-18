@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float respawnInvulnerabilityTime = 3.0f;
     public int lives = 3;
     public int score = 0;
+    public GameObject gameOverUI;
 
     public Text scoreText;
     public Text livesText;
@@ -56,6 +57,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (lives <= 0 && Input.GetKeyDown(KeyCode.Return))
+        {
+            NewGame();
+        }
+    }
+
+    public void NewGame()
+    {
+        Asteroid[] asteroids = FindObjectsOfType<Asteroid>();
+
+        for (int i = 0; i < asteroids.Length; i++)
+        {
+            Destroy(asteroids[i].gameObject);
+        }
+
+        gameOverUI.SetActive(false);
+
+        SetScore(0);
+        SetLives(3);
+        Respawn();
+    }
+
     private void Respawn()
     {
         this.player.transform.position = Vector3.zero; //Obiekt Player respawnuje się w centrum sceny.
@@ -71,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-
+        gameOverUI.SetActive(true);
     }
 
     private void SetScore(int score)
