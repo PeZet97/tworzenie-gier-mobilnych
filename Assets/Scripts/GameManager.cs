@@ -14,6 +14,19 @@ public class GameManager : MonoBehaviour
     {
         this.explosion.transform.position = asteroid.transform.position;
         this.explosion.Play();
+
+        if (asteroid.size < 0.6f)
+        {
+            this.score += 50; // punkty za male asteroidy
+        }
+        else if (asteroid.size < 1.2f)
+        {
+            this.score += 25; // punkty za srednie asteroidy
+        }
+        else
+        {
+            this.score += 10; // punkty za male asteroidy
+        }
     }
 
     public void PlayerDied() //Obiekt Player informuje Managera, że nie żyje.
